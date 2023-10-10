@@ -1,46 +1,46 @@
 name = input("Please input your name: ")
-
+numberbox = 36
 print(name)
 print()
 print()
 print("Game #1:")
 opponent1 = input("Opponent's Name: ")
-points1 = input("Your Points: ")
-opponentpoint1 = input("Opponents Points: ")
+points1 = int(input("Your Points: "))
+opponentpoint1 = int(input("Opponents Points: "))
 print()
 print("Game #2:")
 opponent2 = input("Opponent's Name: ")
-points2 = input("Your Points: ")
-opponentpoint2 = input("Opponents Points: ")
+points2 = int(input("Your Points: "))
+opponentpoint2 = int(input("Opponents Points: "))
 print()
 print("Game #3:")
 opponent3 = input("Opponent's Name: ")
-points3 = input("Your Points: ")
-opponentpoint3 = input("Opponents Points: ")
+points3 = int(input("Your Points: "))
+opponentpoint3 = int(input("Opponents Points: "))
 print()
 print("Game #4:")
 opponent4 = input("Opponent's Name: ")
-points4 = input("Your Points: ")
-opponentpoint4 = input("Opponents Points: ")
-print()
+points4 = int(input("Your Points: "))
+opponentpoint4 = int(input("Opponents Points: "))
 print("Game #5:")
 opponent5 = input("Opponent's Name: ")
-points5 = input("Your Points: ")
-opponentpoint5 = input("Opponents Points: ")
+points5 = int(input("Your Points: "))
+opponentpoint5 = int(input("Opponents Points: "))
 print()
 print("Game #6:")
 opponent6 = input("Opponent's Name: ")
-points6 = input("Your Points: ")
-opponentpoint6 = input("Opponents Points: ")
+points6 = int(input("Your Points: "))
+opponentpoint6 = int(input("Opponents Points: "))
 
-box1 = 36 / points1
-box2 = 36 / points2
-box3 = 36 / points3
-box4 = 36 / points4
-box5 = 36 / points5
-box6 = 36 / points6
+box1 = points1 / numberbox
+box2 = points2 / numberbox
+box3 = points3 / numberbox
+box4 = points4 / numberbox
+box5 = points5 / numberbox
+box6 = points6 / numberbox
 total_points = points1 + points2 + points3 + points4 + points5 + points6
 total_opponent_points = opponentpoint1 + opponentpoint2 + opponentpoint3 + opponentpoint4 + opponentpoint5 + opponentpoint6
+percentage_points_recived = total_points / (total_points + total_opponent_points)
 
 print()
 print("Dots and Boxes Score Tracker")
@@ -49,15 +49,16 @@ print(f"Player's Name: {name}")
 print()
 print(f"{'Opponent':<15}{'Your Points':<15}{'Opponent Points':<15}{'Box%':<15}")
 print(f"{'===================================================================':<60}")
-print(f"{opponent1:<15}{points1:<15}{opponentpoint1:<15}{box1:<15.1%}")
-print(f"{opponent2:<15}{points2:<15}{opponentpoint2:<15}{box2:<15.1%}")
-print(f"{opponent3:<15}{points3:<15}{opponentpoint3:<15}{box3:<15.1%}")
-print(f"{opponent4:<15}{points4:<15}{opponentpoint4:<15}{box4:<15.1%}")
-print(f"{opponent5:<15}{points5:<15}{opponentpoint5:<15}{box5:<15.1%}")
-print(f"{opponent6:<15}{points6:<15}{opponentpoint6:<15}{box6:<15.1%}")
+print(f"{opponent1:<15}{points1:<15}{opponentpoint1:<15}{box1:<15.2%}")
+print(f"{opponent2:<15}{points2:<15}{opponentpoint2:<15}{box2:<15.2%}")
+print(f"{opponent3:<15}{points3:<15}{opponentpoint3:<15}{box3:<15.2%}")
+print(f"{opponent4:<15}{points4:<15}{opponentpoint4:<15}{box4:<15.2%}")
+print(f"{opponent5:<15}{points5:<15}{opponentpoint5:<15}{box5:<15.2%}")
+print(f"{opponent6:<15}{points6:<15}{opponentpoint6:<15}{box6:<15.2%}")
 print(f"{'===================================================================':<60}")
 print()
 print()
 print(f"Summary: ")
 print(f"Total Points: {total_points}")
 print(f"Total Opponent Points: {total_opponent_points}")
+print(f"Percentage Points Recived: {percentage_points_recived:.2%}")
