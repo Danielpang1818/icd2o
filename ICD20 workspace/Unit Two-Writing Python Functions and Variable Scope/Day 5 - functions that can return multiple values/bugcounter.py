@@ -1,5 +1,5 @@
 def  input_bug_counts(bug_type):
-    count = int(input(f"Enter the count of {bug_type}: "))
+    count = int(input(f"Enter the count of {bug_type}s: "))
     return count
 
 def calculate_percent(count,total):
