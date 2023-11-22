@@ -24,7 +24,6 @@ def game_intro(player_name, pokemon_type):
     print("Pokemon trainers have been around since the dawn of time. Level up and build your team to make it to the top.")
     print()
 
-
 def pokemon_battle(pokemon_type):
     print("You have encountered a wild Wombat!")
     print()
@@ -33,12 +32,12 @@ def pokemon_battle(pokemon_type):
         attack_number = int(input("Choose Thunderbolt (1) or Quick Attack (2): "))
         if attack_number == 1:
             print("It was a critical hit! Wombat has fainted!")
-            remaining_health = 100
-            return remaining_health
+            damage_taken = 0
+            return damage_taken
         elif attack_number == 2:
             print("You missed. Pikachu has taken damage.")
-            remaining_health = 0
-            return remaining_health
+            damage_taken = random.randint(20, 50)
+            return damage_taken
         else:
             print("Invalid choice")
 
@@ -46,11 +45,12 @@ def pokemon_battle(pokemon_type):
         attack_number = int(input("Choose Scratch (1) or Flamethrower (2): "))
         if attack_number == 1:
             print("You missed. Charmander has taken damage.")
-            manage_health()
+            damage_taken = random.randint(20, 50)
+            return damage_taken
         elif attack_number == 2:
             print("It was a critical hit! Wombat has fainted!")
-            remaining_health = 100
-            return remaining_health
+            damage_taken = 0
+            return damage_taken
         else:
             print("Invalid choice")
 
@@ -58,12 +58,12 @@ def pokemon_battle(pokemon_type):
         attack_number = int(input("Choose Vine Whip (1) or Solar Beam (2): "))
         if attack_number == 1:
             print("You missed. Bulbasaur has taken damage.")
-            remaining_health = 0
-            return remaining_health
+            damage_taken = random.randint(20, 50)
+            return damage_taken
         elif attack_number == 2:
             print("It was a critical hit! Wombat has fainted!")
-            remaining_health = 100
-            return remaining_health
+            damage_taken = 0
+            return damage_taken
         else:
             print("Invalid choice")
 
@@ -76,13 +76,13 @@ def catch_pokemon(random_pokemon):
     if random_number == 1:
         print()
         print(f"The {random_pokemon} got away.")
-        remaining_health = 0
-        return remaining_health
+        damage_taken = 100
+        return damage_taken
     else:
         print()
         print(f"You caught the wild {random_pokemon}!")
-        remaining_health = 150
-        return remaining_health
+        damage_taken = -50
+        return damage_taken
 
 def make_decision(pokemon_type, random_pokemon):
     print()
@@ -91,33 +91,33 @@ def make_decision(pokemon_type, random_pokemon):
     print("2. Try to catch it")
     decision = int(input("What is your decision (1 or 2): "))
     if decision == 1:
-        remaining_health = pokemon_battle(pokemon_type)
-        return remaining_health
+        damage_taken = pokemon_battle(pokemon_type)
+        return damage_taken
     elif decision == 2:
-        remaining_health = catch_pokemon(random_pokemon)
-        return remaining_health
+        damage_taken = catch_pokemon(random_pokemon)
+        return damage_taken
     else:
         print("Invalid choice.")
 
-def manage_health(hit):
-    if hit:
-        remaining_health = remaining_health - 30
+def manage_health(remaining_health, damage_taken):
+    remaining_health = remaining_health - damage_taken
+    if remaining_health < 0:
         print(f"Your Pokemon has fainted. Game Over.")
     return remaining_health
 
 def game_end(remaining_health):
-    if remaining_health == 0:
+    if remaining_health <= 0:
         print("Score: 0")
-    elif 100 > remaining_health > 0:
+    elif 0 < remaining_health < 100:
         print("Score: 50")
     elif remaining_health == 100:
         print("Score: 100")
     else:
         print("Score: 150")
 
-
 player_name, pokemon_type = choose_pokemon()
 game_intro(player_name, pokemon_type)
 random_pokemon = choose_random_pokemon()
-remaining_health = make_decision(pokemon_type, random_pokemon)
+damage_taken = make_decision(pokemon_type, random_pokemon)
+remaining_health = manage_health(100, damage_taken) 
 game_end(remaining_health)
