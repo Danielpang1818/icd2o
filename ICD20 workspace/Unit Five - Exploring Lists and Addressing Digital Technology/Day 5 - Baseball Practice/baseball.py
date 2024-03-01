@@ -17,29 +17,51 @@ def read_baseball_data(file_path):
 
 # Function to display all baseball player statistics
 def display_all_baseball_stats(names, hits, runs, rbis):
+    print(f"|{'Names':<25}|{'Hits':>6}|{'Runs':>6}|{'Rbis':>6}|")
     for index in range(len(names)):
-        print(f"|{'Names':<25}|{'Hits':>6}|{'Runs':>6}|{'Rbis':>6}|")
         print(f"|{names[index]:<25}|{hits[index]:>6}|{runs[index]:>6}|{rbis[index]:>6}|")
 
 # Function to calculate and display average baseball statistics
 def calculate_and_display_average(hits, runs, rbis):
-    # TODO: Implement the function
-    pass
+    print(f"Average hits: {sum(hits)/len(hits):.2f}")
+    print(f"Average runs: {sum(runs)/len(runs):.2f}")
+    print(f"Average rbis: {sum(rbis)/len(rbis):.2f}")
 
 # Function to identify the baseball player with the highest stats in a category
 def stat_leader(category):
-    # TODO: Implement the function
-    pass
+    maxIndex = 0
+
+    for index in range(len(names)):
+        if category == "Hits":
+            if hits[maxIndex] < hits[index]:
+                maxIndex = index
+        elif category == "RBIs":
+            if rbis[maxIndex] < rbis[index]:
+                    maxIndex = index
+
+    if category == "Hits":
+        print(f"The player with the most {category} is {names[maxIndex]} with {hits[maxIndex]}")
+    elif category == "RBIs":
+        print(f"The player with the most {category} is {names[maxIndex]} with {rbis[maxIndex]}")
+            
+
 
 # Function to display the top 10 players in a specified category
 def display_top_10_in_category(category):
-    # TODO: Implement the function
-    pass
+    
 
 # Function to allow users to add a new baseball player with their statistics
-def add_new_player(data_list):
-    # TODO: Implement the function
-    pass
+def add_new_player(names, hits, runs, rbis):
+    name = input("Enter new name: ")
+    hit = int(input("Enter number of hits: "))
+    run = int(input("Enter number of runs:"))
+    rbi = int(input("Enter number of rbis: "))
+    names.append(name)
+    hits.append(hit)
+    runs.append(run)
+    rbis.append(rbi)
+    
+    
 
 # Main program
 if __name__ == "__main__":
@@ -74,7 +96,8 @@ if __name__ == "__main__":
             category = input("Enter the category to display top 10 players: ")
             display_top_10_in_category(category)
         elif choice == "6":
-            add_new_player()
+            add_new_player(names, hits, runs, rbis)
+            
         elif choice == "7":
             print("Exiting the program. Goodbye!")
             break
