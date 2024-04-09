@@ -17,12 +17,17 @@ def customers_based_on_weather(weather,advertisements):
         return random.randint(30,50) + 10
     elif weather == "Sunny" and advertisements == 2:
         return random.randint(30,50) + 20
+<<<<<<< HEAD
     elif weather == "Sunny" and advertisements == 3:
         return random.randint(30,50) + 30
     elif weather == "Sunny" and advertisements == 4:
         return random.randint(30,50) + 40
     elif weather == "Sunny" and advertisements >= 3:
         return random.randint(30,50) + 45
+=======
+    elif weather == "Sunny" and advertisements >= 3:
+        return random.randint(30,50) + 30
+>>>>>>> aa94fe6fd0e572282f98b77f278aca3e3af8f82e
     elif weather == "Sunny":
         return random.randint(30,50)
 
@@ -30,12 +35,17 @@ def customers_based_on_weather(weather,advertisements):
         return random.randint(0,30) + 10
     elif weather == "Cloudy" and advertisements == 2:
         return random.randint(0,30) + 20
+<<<<<<< HEAD
     elif weather == "Cloudy" and advertisements == 3:
         return random.randint(0,30) + 30
     elif weather == "Cloudy" and advertisements == 4:
         return random.randint(0,30) + 40
     elif weather == "Cloudy" and advertisements >= 5:
         return random.randint(0,30) + 45
+=======
+    elif weather == "Cloudy" and advertisements >= 3:
+        return random.randint(0,30) + 30
+>>>>>>> aa94fe6fd0e572282f98b77f278aca3e3af8f82e
     elif weather == "Cloudy":
         return random.randint(0,30)
     
@@ -43,12 +53,17 @@ def customers_based_on_weather(weather,advertisements):
         return random.randint(40,90) + 10
     elif weather == "Hot and dry" and advertisements == 2:
         return random.randint(40,90) + 20
+<<<<<<< HEAD
     elif weather == "Hot and dry" and advertisements == 3:
         return random.randint(40,90) + 30
     elif weather == "Hot and dry" and advertisements == 4:
         return random.randint(40,90) + 40
     elif weather == "Hot and dry" and advertisements >= 5:
         return random.randint(40,90) + 45
+=======
+    elif weather == "Hot and dry" and advertisements >= 3:
+        return random.randint(40,90) + 30
+>>>>>>> aa94fe6fd0e572282f98b77f278aca3e3af8f82e
     else:
         return random.randint(40,90)
     
