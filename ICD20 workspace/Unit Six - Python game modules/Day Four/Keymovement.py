@@ -1,4 +1,3 @@
-import random
 import sys
 import pygame
 
@@ -29,21 +28,29 @@ game_over = False
 x_vel = 0
 y_vel = 0
 
-def create_circle(n,e,s,w):
+# List to hold circles
+circles = []
+
+def create_circle(n, e, s, w):
     radius = 3
-    color = (0,0,0)
+    color = (0, 0, 0)
     x = player_x
     y = player_y
-    if (n):
+    if n:
         y_vel = -projectile_speed
-    elif (s):
+    elif s:
         y_vel = projectile_speed
-    elif (e):
+    else:
+        y_vel = 0
+    
+    if e:
         x_vel = projectile_speed
-    elif (w):
+    elif w:
         x_vel = -projectile_speed
+    else:
+        x_vel = 0
 
-    circle = {'rect': pygame.Rect(x, y, 2*radius, 2*radius), 'color': color, 'radius': radius, 'x_vel' : x_vel, 'y_vel' : y_vel}
+    circle = {'rect': pygame.Rect(x, y, 2 * radius, 2 * radius), 'color': color, 'radius': radius, 'x_vel': x_vel, 'y_vel': y_vel}
     circles.append(circle)
 
 # Game loop
@@ -56,10 +63,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-
-     # Control the frame rate
+    # Control the frame rate
     clock.tick(60)  # Set the frame rate to 60 frames per second
-    
+
     # Move player circle with keyboard input
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a]:
@@ -75,17 +81,20 @@ while running:
         player_y += player_speed
         player_y = min(player_y, SCREEN_HEIGHT - player_radius)  # Ensure player does not move off the bottom edge
     if keys[pygame.K_SPACE]:
-        create_circle(keys[pygame.K_w],keys[pygame.K_d],keys[pygame.K_s],keys[pygame.K_a])
+        create_circle(keys[pygame.K_w], keys[pygame.K_d], keys[pygame.K_s], keys[pygame.K_a])
 
+    # Update positions of circles
+    for circle in circles:
+        circle['rect'].x += circle['x_vel']
+        circle['rect'].y += circle['y_vel']
+        pygame.draw.circle(screen, circle['color'], (circle['rect'].x, circle['rect'].y), circle['radius'])
 
     # Draw player circle
     pygame.draw.circle(screen, player_color, (player_x, player_y), player_radius)
 
-   
-
     # Refresh screen
     pygame.display.flip()
 
-
 pygame.quit()
 sys.exit()
+xz

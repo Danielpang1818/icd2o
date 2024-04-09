@@ -21,8 +21,8 @@ while running:
     # pygame.draw.circle(screen, (0, 255, 0), (400, 300), 30)
     # pygame.draw.line(screen, (0, 0, 255), (0, 0), (800, 600), 2)
     # pygame.draw.polygon(screen, (255, 255, 0), [(200, 200), (300, 300), (400, 200)])
-    # pygame.draw.arc(screen, (255, 0, 255), pygame.Rect(100, 100, 200, 200), 3.14, 5, 2)
-    pygame.draw.ellipse(screen, (0, 0, 255), pygame.Rect(200, 200, 200, 100))
+    pygame.draw.arc(screen, (255, 0, 255), pygame.Rect(100, 100, 200, 200), 3.14, 5, 2)
+    # pygame.draw.ellipse(screen, (0, 0, 255), pygame.Rect(200, 200, 200, 100))
     # pygame.draw.aaline(screen, (255, 0, 255), (0, 0), (800, 600))
     # pygame.draw.lines(screen, (100, 255, 0), False, [(100, 100), (200, 200), (300, 100)], 5)
     
