@@ -10,8 +10,8 @@ pygame.mixer.init()
 ouch = pygame.mixer.Sound('beep.wav')
 
 # Set up the screen
-SCREEN_WIDTH = 500
-SCREEN_HEIGHT = 100
+SCREEN_WIDTH = 600
+SCREEN_HEIGHT = 500
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Circle Catcher")
 
@@ -27,7 +27,7 @@ clock = pygame.time.Clock()
 font = pygame.font.SysFont(None, 36)
 score = 0
 time_remaining = 60
-player_radius = 20
+player_radius = 5
 player_color = BLUE
 player_x = SCREEN_WIDTH // 2
 player_y = SCREEN_HEIGHT // 2
@@ -59,7 +59,7 @@ while running:
     time_text = font.render(f"Time: {int(time_remaining)}", True, BLACK)
     screen.blit(time_text, (SCREEN_WIDTH - 150, 10))
      # Control the frame rate
-    clock.tick(300)  # Set the frame rate to 60 frames per second
+    clock.tick(60)  # Set the frame rate to 60 frames per second
     
     if time_remaining > 0:
         # Decrease the time_remaining by the amount of time that has passed since the last frame
